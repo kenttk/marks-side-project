@@ -16,7 +16,7 @@ function App() {
       <div className="app-contents-grid">
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/" element={<Search/>} />
+          <Route path="/search" element={<Search/>} />
         </Routes>
       </div>
     </main>
