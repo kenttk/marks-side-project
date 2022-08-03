@@ -11,7 +11,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+/*========GRID AREA==========*/
+.header-grid {
+  grid-area: header;
+}
+.app-contents-grid {
+  grid-area: appContents;
+}
+.sidebar-grid {
+  grid-area: sidebar;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px [col-start];
+  grid-template-rows: [row1-end] 50px [third-line] 425px;
+  grid-template-areas: 
+    "header header header header"
+    "sidebar appContents appContents appContents";
 }
