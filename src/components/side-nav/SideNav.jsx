@@ -1,9 +1,11 @@
 import React from "react";
+import NavItem from "./components/NavItem";
 
 const SideNav = () => {
     return (
-        <nav className="bg-yellow-500 sidebar-grid">
-            Side Navigator
+        <nav className="bg-black sidebar-grid">
+            <NavItem route="/" text="Home" />
+            <NavItem route="/search" text="Search" />
         </nav>
     );
 }
