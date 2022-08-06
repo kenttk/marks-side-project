@@ -1,13 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const NavItem = ({ route, text }) => {
+const NavItem = ({ route, text, icon }) => {
     return (
         <NavLink
-            to={ route }
-            className="text-white"
+            to={route}
+            className="text-white px-2 py-4 flex items-center"
         >
-            {text}
+            {icon}
+            <span>
+                {text}
+            </span>
         </NavLink>
     );
 }
