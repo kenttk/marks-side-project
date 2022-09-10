@@ -9,10 +9,12 @@ import LikedSongsIcon from "../../assets/icons/LikedSongsIcon";
 
 const SideNav = () => {
     return (
-        <nav className="bg-black sidebar-grid text-[10px]">
-            <SideNavItem title="Home" icon={<HomeIcon />} />
-            <SideNavItem title="Search" icon={<SearchIcon />} />
-            <SideNavItem title="Your Library" icon={<YourLibraryIcon />} />
+        <nav className="bg-black sidebar-grid text-[10px]"> 
+            <div className="mt-4">
+                <SideNavItem title="Home" icon={<HomeIcon />} />
+                <SideNavItem title="Search" icon={<SearchIcon />} />
+                <SideNavItem title="Your Library" icon={<YourLibraryIcon />} />
+            </div>
             <div className="mt-6 text-[10px]">
                 <SideNavItem title="Create Playlist" icon={<CreatePlaylistIcon />} />
                 <SideNavItem title="Liked Songs" icon={<LikedSongsIcon />} />
