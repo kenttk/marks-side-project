@@ -11,3 +11,5 @@ const Header = () => {
 }
 
 export default Header;
+//exporting the obect in the current file to make this object
+//usable in another file
