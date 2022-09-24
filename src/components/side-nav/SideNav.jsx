@@ -11,13 +11,13 @@ const SideNav = () => {
     return (
         <nav className="bg-black sidebar-grid text-[10px]"> 
             <div className="mt-4">
-                <SideNavItem title="Home" icon={<HomeIcon />} />
-                <SideNavItem title="Search" icon={<SearchIcon />} />
-                <SideNavItem title="Your Library" icon={<YourLibraryIcon />} />
+                <SideNavItem title="Home" icon={<HomeIcon />} route="/" />
+                <SideNavItem title="Search" icon={<SearchIcon />} route="/search" />
+                <SideNavItem title="Your Library" icon={<YourLibraryIcon />} route="/library" />
             </div>
             <div className="mt-6 text-[10px]">
-                <SideNavItem title="Create Playlist" icon={<CreatePlaylistIcon />} />
-                <SideNavItem title="Liked Songs" icon={<LikedSongsIcon />} />
+                <SideNavItem title="Create Playlist" icon={<CreatePlaylistIcon />} route="/playlist" />
+                <SideNavItem title="Liked Songs" icon={<LikedSongsIcon />} route="/liked-songs" />
             </div>
         </nav>
     );
