@@ -16,13 +16,16 @@ const SideNavItem = ({ title, icon, route  }) => {
     
     /* Adding logic 'IF' and 'ELSE' statements to make sure we set 
     the correct css classes inside of the component(buidling blocks
-    of any React app). */
+    of any React app.). */
     const getClassName = () => {
+
+        const baseClasses = 'flex items-center pb-2 px-4 cursor-pointer gap-2.5'
+
         if (location.pathname === route) {
-            return "flex items-center fill-[#FFFFFF] text-[#FFFFFF] pb-2 px-4 cursor-pointer gap-2.5 hover:text-white hover:fill-white"
+            return `${baseClasses} fill-[#FFFFFF] text-[#FFFFFF]`
             //returns class names to make text white.
         } else {
-            return "flex items-center fill-[#b3b3b3] text-[#b3b3b3] pb-2 px-4 cursor-pointer gap-2.5 hover:text-white hover:fill-white"
+            return `${baseClasses} flex items-center fill-[#b3b3b3] text-[#b3b3b3] hover:text-white hover:fill-white`;
             //returns class names to make text grey.
         }
     }; 
