@@ -10,15 +10,11 @@ import { useLocation } from "react-router-dom";
 
 const SideNavItem = ({ title, icon, route  }) => {
     let location = useLocation();
-
-    console.log(location.pathname);
-    
     
     /* Adding logic 'IF' and 'ELSE' statements to make sure we set 
     the correct css classes inside of the component(buidling blocks
     of any React app.). */
     const getClassName = () => {
-
         const baseClasses = 'flex items-center pb-2 px-4 cursor-pointer gap-2.5'
 
         if (location.pathname === route) {
