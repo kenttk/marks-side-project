@@ -8,7 +8,7 @@ to the resource it's linking to. */
 you'd like to perform some side effect whenver the current location changes. */
 import { useLocation } from "react-router-dom";
 
-const SideNavItem = ({ title, icon, route  }) => {
+const SideNavItem = ({ title, icon, iconActive, route  }) => {
     let location = useLocation();
     
     /* Adding logic 'IF' and 'ELSE' statements to make sure we set 
@@ -25,13 +25,23 @@ const SideNavItem = ({ title, icon, route  }) => {
             //returns class names to make text grey.
         }
     }; 
+
+    const getIcon = () => {
+        if (location.pathname === route) {
+            return iconActive
+            //return the active icon.
+        } else {
+            return icon 
+            //return to normal icon.
+        }
+    }
     
     return ( 
         <Link
             className={getClassName()}
             to={route}
         >
-            {icon} {title}
+            {getIcon()} {title}
         </Link>
     );
 }
