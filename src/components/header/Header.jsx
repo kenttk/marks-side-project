@@ -1,11 +1,16 @@
 import React from "react";
 import SpotifyHeader from "./components/SpotifyHeader";
+import ButtonPill from "../button-pill/ButtonPill";
 import "./header.css";
+
 
 const Header = () => {
     return (
-        <header className="bg-black header-grid">
+        <header className="bg-black header-grid flex">
             <SpotifyHeader />
+            <div className="ml-auto">
+                <ButtonPill />
+            </div>
         </header>
     );
 }
