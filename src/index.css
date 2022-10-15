@@ -25,8 +25,8 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 200px [col-start];
-  grid-template-rows: [row1-end] 50px [third-line] 425px;
+  grid-template-columns: 241px [col-start];
+  grid-template-rows: [row1-end] 50px [third-line] 600px;
   grid-template-areas: 
     "header header header header"
     "sidebar appContents appContents appContents";

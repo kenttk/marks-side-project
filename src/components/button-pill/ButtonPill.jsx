@@ -2,7 +2,7 @@ import React from "react";
 
 const ButtonPill = ({text}) => {
     const handleClick = () => {
-        console.log('City Boy Villains');
+        console.log('CityBoy Villains');
     }
 
     return (
