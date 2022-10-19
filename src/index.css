@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 body {
+  height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -11,23 +12,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  height: 100%;
+}
+
 
 /*========GRID AREA==========*/
 .header-grid {
   grid-area: header;
 }
 .app-contents-grid {
+  height: 100vh;
   grid-area: appContents;
 }
 .sidebar-grid {
+  padding-top: 25px;
+  padding-left: 10px;
+  width: 245px;
   grid-area: sidebar;
 }
 
 .grid-container {
+  height: 100%;
   display: grid;
-  grid-template-columns: 241px [col-start];
-  grid-template-rows: [row1-end] 50px [third-line] 600px;
+  grid-template-columns: 200px;
+  grid-template-rows: auto;
   grid-template-areas: 
-    "header header header header"
+    "sidebar header header header"
     "sidebar appContents appContents appContents";
 }
