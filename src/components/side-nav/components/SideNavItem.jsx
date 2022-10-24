@@ -16,7 +16,7 @@ const SideNavItem = ({ title, icon, iconActive, route }) => {
     of any React app.). */
   const getClassName = () => {
     const baseClasses =
-      "flex items-center pb-2 px-4 cursor-pointer gap-2.5 text-sm";
+      "flex items-center pb-4 px-4 cursor-pointer gap-x-4 text-sm ";
 
     if (location.pathname === route) {
       return `${baseClasses} fill-[#FFFFFF] text-[#FFFFFF]`;

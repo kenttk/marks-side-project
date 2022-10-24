@@ -1,5 +1,6 @@
 import React from "react";
 
+import SpotifyIcon from "../../assets/icons/SpotifyIcon";
 import SideNavItem from "./components/SideNavItem";
 import HomeIconActive from "../../assets/icons/HomeIconActive";
 import SearchIcon from "../../assets/icons/SearchIcon";
@@ -13,6 +14,9 @@ import LegalLink from "./components/LegalLink";
 const SideNav = () => {
   return (
     <nav className="flex flex-col bg-black sidebar-grid text-[10px]">
+      <div className="pl-4 mb-4 spotify-logo text-white" >
+        <SpotifyIcon />
+      </div>
       <div className="mt-4">
         <SideNavItem
           title="Home"
