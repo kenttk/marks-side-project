@@ -1,5 +1,4 @@
 import React from "react";
-import SpotifyHeader from "./components/SpotifyHeader";
 import ButtonPill from "../button-pill/ButtonPill";
 import "./header.css";
 
@@ -14,13 +13,10 @@ const Header = () => {
   }
 
   return (
-    <header className="bg-black header-grid flex">
-      <SpotifyHeader />
-      <div className="p-4">
-        <div className="ml-auto">
-          <ButtonPill text="Log in" onClick={logInOnClick}/>
-          <ButtonPill text="Sign up free" onClick={signUpFreeOnClick}/>
-        </div>
+    <header className="bg-black header-grid flex p-4">
+      <div className="ml-auto content-end">
+        <ButtonPill text="Log in" onClick={logInOnClick}/>
+        <ButtonPill text="Sign up free" onClick={signUpFreeOnClick}/>
       </div>
     </header>
   );
