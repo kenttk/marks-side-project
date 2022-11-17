@@ -28,6 +28,7 @@ body {
 .header-grid {
   grid-area: header;
 }
+
 .app-contents-grid {
   height: 100vh;
   grid-area: appContents;
