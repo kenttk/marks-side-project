@@ -1,0 +1,21 @@
+.login__spotify-logo svg {
+    height: 56px;
+}
+
+.login__spotify-logo {
+    /*paddings and marging in this section*/
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 20px;
+    padding: 12px 0px 5px;
+    
+}
+
+.login_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 450px;
+    width: 100%;
+}
