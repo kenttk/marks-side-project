@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import SpotifyIcon from "../../assets/icons/SpotifyIcon";
 import { useState } from 'react';
@@ -9,16 +9,29 @@ import "./login.css";
 
 const Login = () => {
   const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
+  const [emailError, setEmailErorr] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const emailOnChange = (event) => {
     setEmail(event.target.value);
     const inputFieldIsEmpty = event.target.value === '';
 
     if (inputFieldIsEmpty) {
-      setEmailError('Please enter your Spotify username or email address');
+      setEmailErorr ('Please enter your Spotify username or email address');
     } else {
-      setEmailError('');
+      setEmailErorr('');
+    }
+  }
+
+  const passwordOnChange = (event) => {
+    setPassword(event.target.value);
+    const inputFieldIsEmpty = event.target.value === '';
+
+    if (inputFieldIsEmpty) {
+      setPasswordError ('Please enter your password');
+    } else {
+      setPasswordError('');
     }
   }
 
@@ -34,7 +47,7 @@ const Login = () => {
         <div className="mb-4 w-full">
             <InputField
               label="Email address or username" 
-              placeholder="Email address or username"
+              placeHolder="Email address or username"
               value={email}
               onChange={emailOnChange}
               errorMessage={emailError}
@@ -42,8 +55,12 @@ const Login = () => {
         </div>
               <InputField
                 label="Password" 
-                placeholder="Password"
+                placeHolder="Password"
                 type="password"
+                value={password}
+                onChange={passwordOnChange}
+                errorMessage={passwordError}
+
               />
         </form>
     </div>

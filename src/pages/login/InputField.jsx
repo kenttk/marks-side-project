@@ -1,13 +1,8 @@
 import React from "react";
 
-const InputField = ({
-    label,
-    placeholder,
-    type,
-    value,
-    onChange,
-    errorMessage,
-}) => {
+
+
+const InputField = ({label, placeHolder, type, value, onChange, errorMessage     }) => {
     return (
             <label className="flex flex-col text-sm w-full">
                 {label}
@@ -21,7 +16,7 @@ const InputField = ({
                     // }
                     className={`border-2 border rounded p-3.5 ${errorMessage ? 'border-rose-500' : 'border-black'}`}
                     type={type || "text"}
-                    placeholder={placeholder}
+                    placeholder={placeHolder}
                     value={value}
                     onChange={onChange}
                 />
@@ -29,4 +24,6 @@ const InputField = ({
     );
 }
 
-export default InputField;
+export default InputField; 
+
+
