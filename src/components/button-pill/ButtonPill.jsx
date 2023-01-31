@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ButtonPill = ({ text, onClick }) => {
   return (
@@ -11,4 +12,8 @@ const ButtonPill = ({ text, onClick }) => {
   );
 };
 
+ButtonPill.propTypes = {
+  text: PropTypes.func.isRequired,
+  onClick: PropTypes.string.isRequired,
+};
 export default ButtonPill;
