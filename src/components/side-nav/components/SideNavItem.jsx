@@ -7,6 +7,7 @@ to the resource it's linking to. */
 /* This hook returns the current 'location' object. This can be useful if
 you'd like to perform some side effect whenver the current location changes. */
 import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const SideNavItem = ({ title, icon, iconActive, route }) => {
   let location = useLocation();
@@ -42,6 +43,13 @@ const SideNavItem = ({ title, icon, iconActive, route }) => {
       {getIcon()} {title}
     </Link>
   );
+};
+
+SideNavItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.any.isRequired,
+  iconActive: PropTypes.any.isRequired,
+  route: PropTypes.any.isRequired,
 };
 
 export default SideNavItem;
