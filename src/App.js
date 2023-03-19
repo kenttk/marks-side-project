@@ -7,15 +7,24 @@ import Home from "./pages/home/Home";
 import Search from "./pages/search/Search";
 import Login from "./pages/login/Login";
 
+import rootStore from "./store/root-store";
+
 function App() {
   const location = useLocation();
   const shouldShowHeaderAndSidenav = location.pathname !== "/login";
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
+    if (localStorage.getItem("token")) {
+      rootStore.userStore.setIsLoggedIn(true);
+    }
+  }, []);
+
+  useEffect(() => {
     const tokenInUri = searchParams.get("code");
     if (tokenInUri) {
       localStorage.setItem("token", tokenInUri);
+      rootStore.userStore.setIsLoggedIn(true);
     }
   }, [searchParams]);
 
