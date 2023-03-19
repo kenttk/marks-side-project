@@ -14,7 +14,7 @@ import LegalLink from "./components/LegalLink";
 const SideNav = () => {
   return (
     <nav className="flex flex-col bg-black sidebar-grid text-[10px]">
-      <div className="pl-4 mb-4 spotify-logo text-white" >
+      <div className="pl-4 mb-4 spotify-logo text-white">
         <SpotifyIcon />
       </div>
       <div className="mt-4">

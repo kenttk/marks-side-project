@@ -1,16 +1,23 @@
-import { Routes, Route } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation, useSearchParams } from "react-router-dom";
 
 import SideNav from "./components/side-nav/SideNav";
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
 import Search from "./pages/search/Search";
 import Login from "./pages/login/Login";
-import { useLocation } from "react-router-dom";
 
 function App() {
   const location = useLocation();
   const shouldShowHeaderAndSidenav = location.pathname !== "/login";
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const tokenInUri = searchParams.get("code");
+    if (tokenInUri) {
+      localStorage.setItem("token", tokenInUri);
+    }
+  }, [searchParams]);
 
   return (
     <main className={shouldShowHeaderAndSidenav ? "grid-container" : undefined}>

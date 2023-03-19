@@ -1,67 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 
 import SpotifyIcon from "../../assets/icons/SpotifyIcon";
+import ButtonPill from "../../components/button-pill/ButtonPill";
 
-import InputField from "./InputField";
 import "./login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailErorr] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const spotifyOAuthLogin = () => {
+    const clientID = "9ca747e83ecb4bb9bf7a3b13474d7e60";
+    const baseUrl = "https://accounts.spotify.com/authorize";
+    const redirectUri = "http://localhost:3000";
+    const responseType = "code";
 
-  const emailOnChange = (event) => {
-    setEmail(event.target.value);
-    const inputFieldIsEmpty = event.target.value === "";
+    const href = `${baseUrl}?client_id=${clientID}&response_type=${responseType}&redirect_uri=${redirectUri}`;
 
-    if (inputFieldIsEmpty) {
-      setEmailErorr("Please enter your Spotify username or email address");
-    } else {
-      setEmailErorr("");
-    }
-  };
-
-  const passwordOnChange = (event) => {
-    setPassword(event.target.value);
-    const inputFieldIsEmpty = event.target.value === "";
-
-    if (inputFieldIsEmpty) {
-      setPasswordError("Please enter your password");
-    } else {
-      setPasswordError("");
-    }
+    window.location.href = href;
   };
 
   return (
-    <div className="px-2 py-3">
-      <div className="login__spotify-logo">
+    <div className="bg-green-500 h-screen flex flex-col items-center justify-center">
+      <div className="login__spotify-logo svg-mb-8">
         <SpotifyIcon />
       </div>
-
-      <hr />
-      <div className="flex justify-center">
-        <form className="login_form">
-          <div className="mb-4 w-full">
-            <InputField
-              label="Email address or username"
-              placeHolder="Email address or username"
-              value={email}
-              onChange={emailOnChange}
-              errorMessage={emailError}
-            />
-          </div>
-          <InputField
-            label="Password"
-            placeHolder="Password"
-            type="password"
-            value={password}
-            onChange={passwordOnChange}
-            errorMessage={passwordError}
-          />
-        </form>
-      </div>
-      <div></div>
+      <ButtonPill
+        text="Login with your Spotify account"
+        onClick={spotifyOAuthLogin}
+      />
     </div>
   );
 };
