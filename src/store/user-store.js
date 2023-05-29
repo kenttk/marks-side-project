@@ -1,16 +1,17 @@
 import { makeAutoObservable } from "mobx";
 
 class UserStore {
-    isLoggedIn = false;
+  isLoggedIn = false;
 
-    constructor(rootStore) {
-        this.rootStore = rootStore;
-        makeAutoObservable(this);
-    }
+  constructor(rootStore) {
+    this.rootStore = rootStore;
+    makeAutoObservable(this);
+  }
 
-    setIsLoggedIn(isLoggedIn) {
-        this.isLoggedIn = isLoggedIn;
-    }
+  setIsLoggedIn(value) {
+    this.isLoggedIn = value;
+    console.log(this.isLoggedIn);
+  }
 }
 
 export default UserStore;
