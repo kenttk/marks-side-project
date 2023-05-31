@@ -23,7 +23,6 @@ function App() {
     const token = localStorage.getItem("token");
 
     if (token) {
-      console.log("token exists!");
       rootStore.userStore.setIsLoggedIn(true);
     }
   }, []);

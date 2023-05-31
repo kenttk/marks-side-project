@@ -10,7 +10,6 @@ class UserStore {
 
   setIsLoggedIn(value) {
     this.isLoggedIn = value;
-    console.log(this.isLoggedIn);
   }
 }
 
