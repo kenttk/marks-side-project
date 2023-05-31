@@ -13,7 +13,7 @@ const ButtonPill = ({ text, onClick }) => {
 };
 
 ButtonPill.propTypes = {
-  text: PropTypes.func.isRequired,
-  onClick: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
 };
 export default ButtonPill;
