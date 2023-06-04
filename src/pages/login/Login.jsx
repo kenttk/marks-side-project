@@ -3,16 +3,32 @@ import React from "react";
 import SpotifyIcon from "../../assets/icons/SpotifyIcon";
 import ButtonPill from "../../components/button-pill/ButtonPill";
 
+import generateRandomString from "../../utils/auth/generate-random-string";
+import generateCodeChallenge from "../../utils/auth/generate-code-challenge";
+
 import "./login.css";
 
 const Login = () => {
-  const spotifyOAuthLogin = () => {
-    const clientID = "9ca747e83ecb4bb9bf7a3b13474d7e60";
-    const baseUrl = "https://accounts.spotify.com/authorize";
-    const redirectUri = "http://localhost:3000";
-    const responseType = "code";
+  const spotifyOAuthLogin = async () => {
+    const codeVerifier = generateRandomString(128);
+    const codeChallenge = await generateCodeChallenge(codeVerifier);
 
-    const href = `${baseUrl}?client_id=${clientID}&response_type=${responseType}&redirect_uri=${redirectUri}`;
+    localStorage.setItem("code_verifier", codeVerifier);
+
+    const state = generateRandomString(16);
+
+    const args = new URLSearchParams({
+      response_type: "code",
+      client_id: "975118d81a2246978387ea890210451f",
+      redirect_uri: "http://localhost:3000/login-success",
+      state,
+      code_challenge_method: "S256",
+      code_challenge: codeChallenge,
+    });
+
+    const baseUrl = "https://accounts.spotify.com/authorize";
+
+    const href = `${baseUrl}?${args}`;
 
     window.location.href = href;
   };
