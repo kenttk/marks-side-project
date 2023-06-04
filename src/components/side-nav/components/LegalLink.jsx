@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const LegalLink = ({ href, title }) => {
   return (
@@ -8,6 +9,11 @@ const LegalLink = ({ href, title }) => {
       </span>
     </a>
   );
+};
+
+LegalLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default LegalLink;
