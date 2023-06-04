@@ -1,13 +1,13 @@
 import { makeAutoObservable } from "mobx";
 
 class PlaylistStore {
-    myPlaylist = [];
+  myPlaylist = [];
 
-    constructor(rootStore) {
-        this.rootStore = rootStore;
+  constructor(rootStore) {
+    this.rootStore = rootStore;
 
-        makeAutoObservable(this);
-    }
+    makeAutoObservable(this);
+  }
 }
 
 export default PlaylistStore;

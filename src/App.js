@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-
 import SideNav from "./components/side-nav/SideNav";
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
 import Search from "./pages/search/Search";
 import Login from "./pages/login/Login";
+import rootStore from "./store/root-store";
 import LoginSuccess from "./pages/login-success/LoginSuccess";
 
 function App() {
   const location = useLocation();
+
+  // When the app loads, and we detect a token that is saved in localStorage,
+  // we need to make sure that the userStore knows that the user is logged in.
+  //
+  // This will make sure that certain components doesn't show in the app
+  // when the user is logged in (i.e. the login button and the sign up button)
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      rootStore.userStore.setIsLoggedIn(true);
+    }
+  }, []);
 
   const shouldShowHeaderAndSidenav = () => {
     const routesToHideHeaderAndSidenav = ["/login", "/login-success"];
