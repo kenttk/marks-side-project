@@ -23,7 +23,7 @@ function App() {
 
       rootStore.userStore.setUserResponseData(json);
     } else {
-      console.error("Something went really wrong");
+      // TODO: make sure to do proper error handling
     }
   }
 

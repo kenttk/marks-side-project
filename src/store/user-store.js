@@ -16,8 +16,6 @@ class UserStore {
 
   setUserResponseData(data) {
     this.userResponse = data;
-
-    console.log(data);
   }
 
   get userProfileImageUrl() {
