@@ -3,6 +3,8 @@ import { makeAutoObservable } from "mobx";
 class UserStore {
   isLoggedIn = false;
 
+  userResponse = {};
+
   constructor(rootStore) {
     this.rootStore = rootStore;
     makeAutoObservable(this);
@@ -10,6 +12,20 @@ class UserStore {
 
   setIsLoggedIn(value) {
     this.isLoggedIn = value;
+  }
+
+  setUserResponseData(data) {
+    this.userResponse = data;
+
+    console.log(data);
+  }
+
+  get userProfileImageUrl() {
+    if (this.userResponse.images) {
+      return this.userResponse?.images[0]?.url;
+    }
+
+    return "";
   }
 }
 

@@ -18,14 +18,12 @@ function App() {
       }
     });
 
-    console.log(response);
-
     if (response.ok) {
       const json = await response.json();
 
-      console.log(json);
+      rootStore.userStore.setUserResponseData(json);
     } else {
-      console.error("Something went really wrong")
+      console.error("Something went really wrong");
     }
   }
 

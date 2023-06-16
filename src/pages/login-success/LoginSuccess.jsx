@@ -1,6 +1,8 @@
 import React, { useEffect, useCallback } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
+import rootStore from "../../store/root-store";
+
 const LoginSuccess = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -35,6 +37,8 @@ const LoginSuccess = () => {
 
       localStorage.setItem("token", access_token);
       localStorage.setItem("refreshToken", refresh_token);
+
+      rootStore.userStore.setIsLoggedIn(true);
 
       navigateToApp();
     }

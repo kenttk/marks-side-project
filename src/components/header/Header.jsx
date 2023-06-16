@@ -18,7 +18,11 @@ const Header = () => {
           <ButtonPill text="Log in" onClick={logInOnClick} />
         </div>
       ) : (
-        <p className="ml-auto content-end text-white">I'm logged in!!!!</p>
+        <img
+          className="ml-auto content-end rounded-full"
+          src={rootStore.userStore.userProfileImageUrl}
+          style={{ height: 20, width: 20 }}
+        />
       )}
     </header>
   );
