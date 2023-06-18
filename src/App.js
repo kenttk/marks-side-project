@@ -12,19 +12,7 @@ function App() {
   const location = useLocation();
 
   const initializeAppForLoggedInUser = async (token) => {
-    const response = await fetch('https://api.spotify.com/v1/me',{
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-
-    if (response.ok) {
-      const json = await response.json();
-
-      rootStore.userStore.setUserResponseData(json);
-    } else {
-      // TODO: make sure to do proper error handling
-    }
+    await rootStore.userStore.fetchUserInformation(token);
   }
 
   // When the app loads, and we detect a token that is saved in localStorage,
