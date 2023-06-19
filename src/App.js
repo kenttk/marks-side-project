@@ -11,21 +11,23 @@ import LoginSuccess from "./pages/login-success/LoginSuccess";
 function App() {
   const location = useLocation();
 
+  // "await fetch", passes in end point which is the URL.
   const intializeAppForLoggedInUser = async (token) => {
     const response = await fetch("https://api.spotify.com/v1/me", {
       headers: {
-        Authorization: `Bearer ${token}`,
+        //"headers" will exist in every network call. In here we are passing on an
+        //"Authorization" header(below).
+        Authorization: `Bearer ${token}`, // the 'Bearer' providing proof to spotify.
       },
     });
 
-    console.log(response);
-
+    //any response status in the <200 range is will return 'response.ok' as True
     if (response.ok) {
-      const json = await response.json();
+      const json = await response.json(); //<--will not get data without this.
 
-      console.log(json);
+      rootStore.userStore.setUserResponseData(json); //calls the setter function in 'user-store.js'.
     } else {
-      console.error("Something went really wrong");
+      console.error("Something went really wrong"); //debbuging
     }
   };
 
@@ -39,7 +41,7 @@ function App() {
 
     if (token) {
       rootStore.userStore.setIsLoggedIn(true);
-      intializeAppForLoggedInUser(token);
+      intializeAppForLoggedInUser(token); //calling the function we created in lines 15-20.
     }
   }, []);
 
