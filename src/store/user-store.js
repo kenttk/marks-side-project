@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, flow } from "mobx";
 
 // class variables: "isLogged in" and "userData".
 class UserStore {
@@ -11,7 +11,9 @@ class UserStore {
 
   constructor(rootStore) {
     this.rootStore = rootStore;
-    makeAutoObservable(this);
+    makeAutoObservable(this, {
+      fetchUserInformation: flow,
+    });
   }
 
   setIsLoggedIn(value) {
@@ -24,6 +26,22 @@ class UserStore {
   }
   // On lines 21-22: we set a "setter functon" that will take the data
   // and se the value
+
+  *fetchUserInformation(token) {
+    const response = yield fetch("https://api.spotify.com/v1/me", {
+      headers: {
+        Authorization: `Bearer $(token)`,
+      },
+    });
+
+    if (response.ok) {
+      const json = yield response.json();
+
+      this.setUserResponseData(json);
+    } else {
+      console.log();
+    }
+  }
 
   get userProfileImageUrl() {
     if (this.userResponse.images) {
