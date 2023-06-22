@@ -10,7 +10,6 @@ const Header = () => {
   const logInOnClick = () => {
     navigate("/login");
   };
-  console.log(rootStore.userStore.userProfileImageUrl);
   return (
     <header className="bg-black header-grid flex p-4">
       {!rootStore.userStore.isLoggedIn ? (
