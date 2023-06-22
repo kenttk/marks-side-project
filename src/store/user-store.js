@@ -3,11 +3,10 @@ import { makeAutoObservable, flow } from "mobx";
 // class variables: "isLogged in" and "userData".
 class UserStore {
   isLoggedIn = false;
-  userData = {};
 
-  userResponse = {};
-  // On line 8: we create a variable in user-store.js
+  // Create a variable in user-store.js
   // to hold the user data from spotify.
+  userResponse = {};
 
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -22,7 +21,6 @@ class UserStore {
 
   setUserResponseData(data) {
     this.userResponse = data;
-    console.log(data); //running console log to test.
   }
   // On lines 21-22: we set a "setter functon" that will take the data
   // and se the value
@@ -30,7 +28,7 @@ class UserStore {
   *fetchUserInformation(token) {
     const response = yield fetch("https://api.spotify.com/v1/me", {
       headers: {
-        Authorization: `Bearer $(token)`,
+        Authorization: `Bearer ${token}`,
       },
     });
 
@@ -38,8 +36,6 @@ class UserStore {
       const json = yield response.json();
 
       this.setUserResponseData(json);
-    } else {
-      console.log();
     }
   }
 
