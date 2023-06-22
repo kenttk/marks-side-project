@@ -10,7 +10,7 @@ const Header = () => {
   const logInOnClick = () => {
     navigate("/login");
   };
-
+  console.log(rootStore.userStore.userProfileImageUrl);
   return (
     <header className="bg-black header-grid flex p-4">
       {!rootStore.userStore.isLoggedIn ? (
@@ -19,7 +19,7 @@ const Header = () => {
         </div>
       ) : (
         <img
-          className="m1-auto content-end rounded-full"
+          className="ml-auto content-end rounded-full"
           src={rootStore.userStore.userProfileImageUrl}
           alt="" //I added this bcuz of the "rule" in esling? I got a caution/error prompt
           style={{ height: 20, width: 20 }}
