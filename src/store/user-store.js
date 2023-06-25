@@ -7,8 +7,9 @@ class UserStore {
 
   constructor(rootStore) {
     this.rootStore = rootStore;
+
     makeAutoObservable(this, {
-      fetchUserInformation: flow
+      fetchUserInformation: flow,
     });
   }
 
@@ -21,10 +22,10 @@ class UserStore {
   }
 
   *fetchUserInformation(token) {
-    const response = yield fetch('https://api.spotify.com/v1/me',{
+    const response = yield fetch("https://api.spotify.com/v1/me", {
       headers: {
-        Authorization: `Bearer ${token}`
-      }
+        Authorization: `Bearer ${token}`,
+      },
     });
 
     if (response.ok) {

@@ -13,7 +13,8 @@ function App() {
 
   const initializeAppForLoggedInUser = async (token) => {
     await rootStore.userStore.fetchUserInformation(token);
-  }
+    await rootStore.playliststore.fetchFeaturedPlaylists(token);
+  };
 
   // When the app loads, and we detect a token that is saved in localStorage,
   // we need to make sure that the userStore knows that the user is logged in.
