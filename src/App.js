@@ -14,7 +14,7 @@ function App() {
   // "await fetch", passes in end point which is the URL.
   const intializeAppForLoggedInUser = async (token) => {
     await rootStore.userStore.fetchUserInformation(token);
-    await rootStore.playliststore.fetchFeaturedPlaylists(token);
+    await rootStore.playliststore.fetchMyPlaylists(token);
   };
 
   // When the app loads, and we detect a token that is saved in localStorage,
