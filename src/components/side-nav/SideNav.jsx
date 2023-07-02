@@ -1,5 +1,6 @@
 import React from "react";
 
+import { observer } from "mobx-react-lite";
 import SpotifyIcon from "../../assets/icons/SpotifyIcon";
 import SideNavItem from "./components/SideNavItem";
 import HomeIconActive from "../../assets/icons/HomeIconActive";
@@ -10,6 +11,7 @@ import LikedSongsIcon from "../../assets/icons/LikedSongsIcon";
 import HomeIcon from "../../assets/icons/HomeIcon";
 import SearchIconActive from "../../assets/icons/SearchIconActive";
 import LegalLink from "./components/LegalLink";
+import rootStore from "../../store/root-store";
 
 const SideNav = () => {
   return (
@@ -48,6 +50,21 @@ const SideNav = () => {
           route="/liked-songs"
         />
       </div>
+
+      {/* map() on line 59:
+      1. Creates a new array from calling a function for every array element.
+      2. Does not execute the function for empty elements. 
+      3. Does not change the orginal array */}
+      <div>
+        {rootStore.playliststore.sideBarPlaylists?.map((playlist) => {
+          return (
+            <div className="text-white" key={playlist.id}>
+              {playlist.name}
+            </div>
+          );
+        })}
+      </div>
+
       <div className="flex flex-col space-y-2 ml-4 pb-10">
         <LegalLink
           href="https://www.spotify.com/legal/cookies-policy/"
@@ -63,4 +80,4 @@ const SideNav = () => {
   );
 };
 
-export default SideNav;
+export default observer(SideNav);
