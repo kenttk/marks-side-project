@@ -13,22 +13,8 @@ function App() {
 
   // "await fetch", passes in end point which is the URL.
   const intializeAppForLoggedInUser = async (token) => {
-    const response = await fetch("https://api.spotify.com/v1/me", {
-      headers: {
-        //"headers" will exist in every network call. In here we are passing on an
-        //"Authorization" header(below).
-        Authorization: `Bearer ${token}`, // the 'Bearer' providing proof to spotify.
-      },
-    });
-
-    //any response status in the <200 range is will return 'response.ok' as True
-    if (response.ok) {
-      const json = await response.json(); //<--will not get data without this.
-
-      rootStore.userStore.setUserResponseData(json); //calls the setter function in 'user-store.js'.
-    } else {
-      console.error("Something went really wrong"); //debbuging
-    }
+    await rootStore.userStore.fetchUserInformation(token);
+    await rootStore.playliststore.fetchFeaturedPlaylists(token);
   };
 
   // When the app loads, and we detect a token that is saved in localStorage,
