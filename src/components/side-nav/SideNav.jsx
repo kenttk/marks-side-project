@@ -12,6 +12,7 @@ import HomeIcon from "../../assets/icons/HomeIcon";
 import SearchIconActive from "../../assets/icons/SearchIconActive";
 import LegalLink from "./components/LegalLink";
 import rootStore from "../../store/root-store";
+import Playlist from "./components/Playlist";
 
 const SideNav = () => {
   return (
@@ -49,20 +50,22 @@ const SideNav = () => {
           icon={<LikedSongsIcon />}
           route="/liked-songs"
         />
-      </div>
-
-      {/* map() on line 59:
+        {/* map() on line 59:
       1. Creates a new array from calling a function for every array element.
       2. Does not execute the function for empty elements. 
       3. Does not change the orginal array */}
-      <div>
-        {rootStore.playliststore.sideBarPlaylists?.map((playlist) => {
-          return (
-            <div className="text-white" key={playlist.id}>
-              {playlist.name}
-            </div>
-          );
-        })}
+        <div>
+          {rootStore.playliststore.sideBarPlaylists?.map((playlist) => {
+            return (
+              <Playlist
+                key={playlist.id}
+                name={playlist.name}
+                ownerName={playlist.owner.display_name}
+                imgUrl={playlist.images[0].url}
+              />
+            );
+          })}
+        </div>
       </div>
 
       <div className="flex flex-col space-y-2 ml-4 pb-10">
