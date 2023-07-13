@@ -51,9 +51,10 @@ const SideNav = () => {
           route="/liked-songs"
         />
         {/* map() on line 59:
-      1. Creates a new array from calling a function for every array element.
-      2. Does not execute the function for empty elements. 
-      3. Does not change the orginal array */}
+          1. Creates a new array from calling a function for every array element.
+          2. Does not execute the function for empty elements. 
+          3. Does not change the orginal array
+        */}
         <div>
           {rootStore.playliststore.sideBarPlaylists?.map((playlist) => {
             return (
