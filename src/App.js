@@ -7,6 +7,7 @@ import Search from "./pages/search/Search";
 import Login from "./pages/login/Login";
 import rootStore from "./store/root-store";
 import LoginSuccess from "./pages/login-success/LoginSuccess";
+import MyPlaylist from "./pages/my-playlist/MyPlaylist";
 
 function App() {
   const location = useLocation();
@@ -53,6 +54,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/login" element={<Login />} />
           <Route path="/login-success" element={<LoginSuccess />} />
+          <Route path="/playlist/:id" element={<MyPlaylist />} />
         </Routes>
       </div>
     </main>

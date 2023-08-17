@@ -63,6 +63,7 @@ const SideNav = () => {
                 name={playlist.name}
                 ownerName={playlist.owner.display_name}
                 imgURL={playlist.images[0].url}
+                id={playlist.id}
               />
             );
           })}
