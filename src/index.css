@@ -25,22 +25,20 @@ body {
 }
 
 /*========GRID AREA==========*/
-.header-grid {
+/* .header-grid {
   grid-area: header;
-}
+} */
 
-.app-contents-grid {
+/* .app-contents-grid {
   height: 100vh;
   grid-area: appContents;
-}
+} */
 .sidebar-grid {
-  padding-top: 25px;
-  padding-left: 10px;
   width: 245px;
   grid-area: sidebar;
 }
 
-.grid-container {
+/* .grid-container {
   height: 100%;
   display: grid;
   grid-template-columns: 200px;
@@ -48,4 +46,4 @@ body {
   grid-template-areas:
     "sidebar header header header"
     "sidebar appContents appContents appContents";
-}
+} */

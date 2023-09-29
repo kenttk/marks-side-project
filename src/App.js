@@ -39,25 +39,21 @@ function App() {
   };
 
   return (
-    <main
-      className={shouldShowHeaderAndSidenav() ? "grid-container" : undefined}
-    >
-      {shouldShowHeaderAndSidenav() && <Header />}
-      {shouldShowHeaderAndSidenav() && <SideNav />}
-      <div
-        className={
-          shouldShowHeaderAndSidenav() ? "app-contents-grid" : undefined
-        }
-      >
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/login-success" element={<LoginSuccess />} />
-          <Route path="/playlist/:id" element={<MyPlaylist />} />
-        </Routes>
-      </div>
-    </main>
+    <div>
+      <main>
+        <div className="flex">
+          <SideNav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/login-success" element={<LoginSuccess />} />
+            <Route path="/my-playlist/:id" element={<MyPlaylist />} />
+          </Routes>
+        </div>
+        <div className="text-black">footer</div>
+      </main>
+    </div>
   );
 }
 
