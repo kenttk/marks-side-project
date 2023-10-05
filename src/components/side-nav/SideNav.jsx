@@ -36,7 +36,7 @@ const SideNav = () => {
         </Card>
       </div>
       <Card>
-        <div className="pt-4">
+        <div className="pt-4 flex flex-col bg-black sidebar-grid h-96">
           <SideNavItem
             title="Your Library"
             icon={<YourLibraryIcon />}

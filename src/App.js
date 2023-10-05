@@ -39,9 +39,8 @@ function App() {
   };
 
   return (
-    <div>
-      <main>
-        <div className="flex">
+      <main className="h-full flex flex-col">
+        <div className="flex grow">
           <SideNav />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -51,9 +50,8 @@ function App() {
             <Route path="/my-playlist/:id" element={<MyPlaylist />} />
           </Routes>
         </div>
-        <div className="text-black">footer</div>
+        <div className="text-black basis-6">footer</div>
       </main>
-    </div>
   );
 }
 
