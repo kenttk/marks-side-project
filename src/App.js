@@ -7,6 +7,7 @@ import Search from "./pages/search/Search";
 import Login from "./pages/login/Login";
 import rootStore from "./store/root-store";
 import LoginSuccess from "./pages/login-success/LoginSuccess";
+import MyPlaylist from "./pages/my-playlist/MyPlaylist";
 
 function App() {
   const location = useLocation();
@@ -38,24 +39,19 @@ function App() {
   };
 
   return (
-    <main
-      className={shouldShowHeaderAndSidenav() ? "grid-container" : undefined}
-    >
-      {shouldShowHeaderAndSidenav() && <Header />}
-      {shouldShowHeaderAndSidenav() && <SideNav />}
-      <div
-        className={
-          shouldShowHeaderAndSidenav() ? "app-contents-grid" : undefined
-        }
-      >
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/login-success" element={<LoginSuccess />} />
-        </Routes>
-      </div>
-    </main>
+      <main className="h-full flex flex-col">
+        <div className="flex grow">
+          <SideNav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/login-success" element={<LoginSuccess />} />
+            <Route path="/my-playlist/:id" element={<MyPlaylist />} />
+          </Routes>
+        </div>
+        <div className="text-black basis-6">footer</div>
+      </main>
   );
 }
 
