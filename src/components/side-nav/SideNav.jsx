@@ -13,12 +13,20 @@ import LegalLink from "./components/LegalLink";
 import rootStore from "../../store/root-store";
 import Playlist from "./components/Playlist";
 import Card from "../card/Card";
+import SpotifyIcon from "../../assets/icons/SpotifyIcon";
 
 const SideNav = () => {
   return (
     <nav className="flex flex-col bg-black sidebar-grid text-[10px]">
       <div className="mt-2 mb-2">
         <Card>
+          <div>
+            <SideNavItem
+              icon={<SpotifyIcon />}
+              iconActive={<SpotifyIcon />}
+              route="/"
+            />
+          </div>
           <div className="pt-4">
             <SideNavItem
               title="Home"
