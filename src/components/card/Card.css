@@ -1,3 +1,4 @@
 .card {
     background-color: #121212;
+    overflow: hidden;
 }

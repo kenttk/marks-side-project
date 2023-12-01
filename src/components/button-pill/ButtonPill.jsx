@@ -1,11 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const ButtonPill = ({ text, onClick }) => {
+const ButtonPill = ({ text, onClick, size = "normal" }) => {
+  const getPadding = () => {
+    if (size === "small") {
+      return "py-1 px-4";
+    }
+    return "py-2 px-8";
+  };
+
   return (
     <button
       onClick={onClick}
-      className="bg-white transform motion-safe:hover:scale-110 text-black font-24px font-bold py-2 px-4 rounded-full py-2 px-8"
+      className={`bg-white transform motion-safe:hover:scale-110 text-black text-sm font-bold rounded-full ${getPadding()}`}
     >
       {text}
     </button>
@@ -15,5 +22,6 @@ const ButtonPill = ({ text, onClick }) => {
 ButtonPill.propTypes = {
   onClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
+  size: PropTypes.string,
 };
 export default ButtonPill;
