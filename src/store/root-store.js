@@ -4,7 +4,7 @@ import PlaylistStore from "./playlist-store";
 class RootStore {
   constructor() {
     this.userStore = new UserStore(this);
-    this.playliststore = new PlaylistStore(this);
+    this.playlistStore = new PlaylistStore(this);
   }
 }
 
