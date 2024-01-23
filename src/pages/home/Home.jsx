@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
+import { observer } from "mobx-react-lite";
+import { useEffect } from "react";
 import rootStore from "../../store/root-store";
+import RecentlyPlayed from "../../components/recently-played/RecentlyPlayed";
 
 const Home = () => {
   useEffect(() => {
@@ -11,11 +13,9 @@ const Home = () => {
 
     if (token) {
       // We should be logged in! Now let's fetch playlists
-      rootStore.playlistStore.fetchMyPlaylists();
+      rootStore.playlistStore.fetchMyPlaylists(token);
     }
   }, []);
-
-  return <h1>Home</h1>;
 };
 
-export default Home;
+export default observer(Home);

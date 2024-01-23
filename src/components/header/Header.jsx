@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <header className="header-grid flex p-4 justify-between items-center">
       <div className="flex items-stretch space-x-1.5">
-        <div className="bg-black h-8 w-8 flex items-center justify-center rounded-full">
+        <div className="bg-black h-8 w-8 flex rounded-full">
           <button className="h-4 w-4 fill-white m-2">
             <svg
               data-encore-id="icon"
