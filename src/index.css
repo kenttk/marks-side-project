@@ -26,6 +26,6 @@ body {
 
 /*========GRID AREA==========*/
 .sidebar-grid {
-  width: 245px;
+  width: 290px;
   grid-area: sidebar;
 }

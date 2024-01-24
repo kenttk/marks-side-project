@@ -3,3 +3,10 @@
     max-width: 131px;
     width: 100%;
 }
+
+.white-vertical-line {
+    background: #fff;
+    height: 25px;
+    margin: 16px;
+    width: 1px;
+}

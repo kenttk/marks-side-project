@@ -8,6 +8,7 @@ import Login from "./pages/login/Login";
 import rootStore from "./store/root-store";
 import LoginSuccess from "./pages/login-success/LoginSuccess";
 import MyPlaylist from "./pages/my-playlist/MyPlaylist";
+import Card from "./components/card/Card";
 
 function App() {
   const location = useLocation();
@@ -15,7 +16,7 @@ function App() {
   // "await fetch", passes in end point which is the URL.
   const intializeAppForLoggedInUser = async (token) => {
     await rootStore.userStore.fetchUserInformation(token);
-    await rootStore.playliststore.fetchMyPlaylists(token);
+    await rootStore.playlistStore.fetchMyPlaylists(token);
   };
 
   // When the app loads, and we detect a token that is saved in localStorage,
@@ -39,9 +40,11 @@ function App() {
   };
 
   return (
-      <main className="h-full flex flex-col">
-        <div className="flex grow">
-          <SideNav />
+    <main className="bg-black h-full flex flex-col">
+      <div className="flex grow">
+        <SideNav />
+        <Card>
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
@@ -49,9 +52,10 @@ function App() {
             <Route path="/login-success" element={<LoginSuccess />} />
             <Route path="/my-playlist/:id" element={<MyPlaylist />} />
           </Routes>
-        </div>
-        <div className="text-black basis-6">footer</div>
-      </main>
+        </Card>
+      </div>
+      <div className="text-black basis-6">footer</div>
+    </main>
   );
 }
 
