@@ -29,6 +29,35 @@ class PlaylistStore {
     }
   }
 
+  *fetchPlaylistSongs(token, id) {
+    const response = yield fetch(
+      `https://api.spotify.com/v1/playlists/${id}/tracks`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (response.ok) {
+      const json = yield response.json();
+      console.log(json);
+    }
+  }
+
+  *fetchPlaylistDetails(token, id) {
+    const response = yield fetch(`https://api.spotify.com/v1/playlists/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      const json = yield response.json();
+      console.log(json);
+    }
+  }
+
   get sideBarPlaylists() {
     return this.myPlaylists?.items;
   }

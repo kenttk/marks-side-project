@@ -1,0 +1,27 @@
+.home-playlist-card {
+  transition: background-color .3s ease;
+  cursor: pointer;
+}
+
+.home-playlist-card:hover {
+  background: #282828;
+}
+
+.home-playlist__play-button {
+  position: absolute;
+  right: 0;
+  margin-top: -48px;
+  border-radius: 50%;
+  background-color: #1ed760;
+  padding: 8px;
+  margin-right: 8px;
+
+  opacity: 0;
+  transform: translateY(32px);
+  transition: all .3s ease;
+}
+
+.home-playlist-card:hover .home-playlist__play-button {
+  opacity: 1;
+  transform: translateY(0);
+}
