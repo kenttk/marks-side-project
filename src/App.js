@@ -50,7 +50,7 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/login" element={<Login />} />
             <Route path="/login-success" element={<LoginSuccess />} />
-            <Route path="/my-playlist/:id" element={<MyPlaylist />} />
+            <Route path="/playlist/:id" element={<MyPlaylist />} />
           </Routes>
         </Card>
       </div>
