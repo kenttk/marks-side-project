@@ -23,7 +23,7 @@ class UserStore {
     this.userResponse = data;
   }
   // On lines 21-22: we set a "setter functon" that will take the data
-  // and se the value
+  // and set the value
 
   *fetchUserInformation(token) {
     const response = yield fetch("https://api.spotify.com/v1/me", {
@@ -33,7 +33,7 @@ class UserStore {
     });
 
     if (response.ok) {
-      const json = yield response.json();
+      const json = yield response.json(); //getting data but not doing anything with it.
 
       this.setUserResponseData(json);
     }
